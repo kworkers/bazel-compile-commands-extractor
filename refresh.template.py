@@ -228,8 +228,8 @@ def _get_cached_adjusted_modified_time(path: str):
 BAZEL_INTERNAL_SOURCE_CUTOFF = time.time() + 60*60*24*365
 
 
-def _is_nvcc(path: str):
-    return os.path.basename(path).startswith('nvcc')
+def _is_nvcc(path: str):    
+    return os.path.basename(path).startswith('nvcc') and os.path.basename(path) != "nvcc_wrapper"
 
 
 def _get_headers_gcc(compile_action, source_path: str, action_key: str):
